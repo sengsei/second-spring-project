@@ -7,18 +7,23 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    private List<Student> students = new ArrayList<>();
+
+    private final StudentDatabase studentDatabase;
+
+    public StudentService(StudentDatabase studentDatabase) {
+        this.studentDatabase = studentDatabase;
+    }
 
     public List<Student> getStudents() {
-        return students;
+        return studentDatabase.getStudents();
     }
 
     public void createStudent(Student student) {
-        students.add(student);
+        studentDatabase.createStudent(student);
     }
 
     public Student getSpezialStudent(String searchValue) {
-        for (Student student : students){
+        for (Student student : studentDatabase.getStudents()){
             if (student.getName().equals(searchValue)){
                 return student;
             }
