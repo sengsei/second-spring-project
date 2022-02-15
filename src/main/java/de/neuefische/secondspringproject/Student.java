@@ -4,20 +4,28 @@ import java.util.List;
 import java.util.UUID;
 
 public class Student {
-    private UUID id;
+    private String id;
     private String name;
 
 
-    public Student(String name) {
-        this.id = UUID.randomUUID() ;
+    public Student() {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
